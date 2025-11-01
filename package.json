@@ -1,0 +1,19 @@
+{
+  "name": "vitest-e2e",
+  "version": "1.0.0",
+  "packageManager": "pnpm@10.13.0",
+  "description": "",
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
+  "main": "index.js",
+  "scripts": {},
+  "devDependencies": {
+    "@antfu/eslint-config": "^6.2.0",
+    "@playwright/test": "^1.56.1",
+    "@types/node": "^24.9.2",
+    "eslint": "^9.38.0",
+    "eslint-plugin-format": "^1.0.2",
+    "eslint-plugin-playwright": "^2.3.0"
+  }
+}
