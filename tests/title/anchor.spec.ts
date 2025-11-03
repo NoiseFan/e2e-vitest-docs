@@ -10,7 +10,7 @@ test.describe('标题自定义锚点', () => {
   test.setTimeout(3000 * 1000)
 
   test('手工添加锚点', async ({ page, context }) => {
-    const target = '/guide/migration'
+    const target = '/advanced/pool.html'
     const CNAnchorList = new Map<string, anchorDetailType>()
     const ENAnchorList = new Map<string, anchorDetailType>()
 
@@ -19,7 +19,7 @@ test.describe('标题自定义锚点', () => {
     })
 
     await test.step('step2：获取锚点', async () => {
-      const anchors = handleAchorDetail(page, { targetMap: CNAnchorList })
+      const anchors = await handleAchorDetail(page, { targetMap: CNAnchorList })
       console.info('中文锚点列表：', Object.values(anchors).map(item => item.href))
     })
 
@@ -58,7 +58,7 @@ test.describe('标题自定义锚点', () => {
     const checkQueue = []
 
     await test.step('step1：打开中文文档', async () => {
-      await gotoDocsPage(page, { key: 'local', url: '/guide/' })
+      await gotoDocsPage(page, { key: 'local', url: '/guide/browser/' })
     })
 
     await test.step('step2：获取所有页面', async () => {

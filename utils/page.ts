@@ -13,6 +13,7 @@ type buildLinkOptionsType = {
 }
 function buildLinkURL(opts: buildLinkOptionsType) {
   const { key = 'local', url } = opts
+
   if (url.endsWith('.html')) {
     return `${HOST[key]}${url}`
   }

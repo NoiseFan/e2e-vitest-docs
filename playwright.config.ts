@@ -1,9 +1,13 @@
+import { existsSync } from 'node:fs'
 import path from 'node:path'
 import process from 'node:process'
 import { defineConfig, devices } from '@playwright/test'
 import dotenv from 'dotenv'
 
 dotenv.config({ path: path.resolve(__dirname, '.env'), quiet: true })
+if (existsSync('.env.local')) {
+  dotenv.config({ path: '.env.local', override: true, quiet: true })
+}
 /**
  * See https://playwright.dev/docs/test-configuration.
  */

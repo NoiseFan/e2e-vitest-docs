@@ -16,6 +16,7 @@ test.describe('锚点批量检查', () => {
     test(`处理${task.groupName} ${task.title}`, async ({ page, context }) => {
       const CNAnchorList = new Map<string, anchorDetailType>()
       const ENAnchorList = new Map<string, anchorDetailType>()
+      let errorPage: undefined | string
 
       await test.step('step1：打开中文文档', async () => {
         await gotoDocsPage(page, { key: 'local', url: task.href })
@@ -36,19 +37,23 @@ test.describe('锚点批量检查', () => {
       })
 
       await test.step('step5：输出对比教过', async () => {
-        if (CNAnchorList.size === ENAnchorList.size) {
-          console.info(`${task.title} 锚点数量相等`)
-        }
-        else {
-          console.warn(`${task.title} 锚点数量不相等，需处理页面${task.href}`)
-        }
-        for (const key in ENAnchorList) {
-          if (!CNAnchorList.get(key))
-            console.warn(`${task.title} 锚点${key}不存在`)
-          if (ENAnchorList.get(key) !== CNAnchorList.get(key))
-            console.warn(`${task.title} 锚点${key}不一致`)
+        // if (CNAnchorList.size !== ENAnchorList.size) {
+        // console.warn(`${task.title} 锚点数量不相等，需处理页面${task.href}`)
+        // }
+        for (const key of ENAnchorList.keys()) {
+          if (!CNAnchorList.get(key)) {
+            errorPage = task.href
+          }
+          else {
+            if (ENAnchorList.get(key).href !== CNAnchorList.get(key).href) {
+              errorPage = task.href
+            }
+          }
         }
       })
+
+      if (errorPage)
+        console.info('需要复检的页面有', errorPage)
     })
   }
 })
