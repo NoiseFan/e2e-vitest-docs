@@ -2,9 +2,9 @@ import type { Page } from '@playwright/test'
 import { getAchorListWithContent } from './title'
 
 const HOST = {
-  local: 'http://localhost:3333',
-  en: 'https://vitest.dev',
-  cn: 'https://cn.vitest.dev',
+  local: 'http://localhost:5174',
+  en: 'https://vite.dev',
+  cn: 'https://cn.vite.dev',
 }
 
 type buildLinkOptionsType = {
