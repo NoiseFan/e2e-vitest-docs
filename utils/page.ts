@@ -1,10 +1,13 @@
-import type { Page } from '@playwright/test'
+import type { Locator, Page } from '@playwright/test'
 import { getAchorListWithContent } from './title'
 
 const HOST = {
-  local: 'http://localhost:5174',
-  en: 'https://vite.dev',
-  cn: 'https://cn.vite.dev',
+  local: 'http://localhost:3333',
+  // local: 'https://ant.design/docs/spec/overview-cn',
+  en: 'https://vitest.dev',
+  v3: 'https://v3.vitest.dev',
+  // en: 'https://vite.dev',
+  // cn: 'https://cn.vite.dev',
 }
 
 type buildLinkOptionsType = {
@@ -28,4 +31,24 @@ export async function gotoDocsPage(page: Page, opts: buildLinkOptionsType) {
   await page.goto(url, { timeout: 10 * 1000 })
   await page.waitForLoadState()
   await getAchorListWithContent(page).first().getByRole('link').click()
+}
+
+/**
+ * 获取侧边栏Locator
+ */
+export function getSiderBarLocator(page: Page) {
+  return page.locator('.VPSidebar')
+}
+
+/**
+ * 获取所有的group Locator
+ */
+export function getGroupWithSiderBarLocators(page: Page) {
+  return getSiderBarLocator(page).locator('.group')
+}
+
+type getMenuItemLocatorType = { parentLocator: Locator }
+export function getMenuItemLocators(opts: getMenuItemLocatorType) {
+  const { parentLocator } = opts
+  return parentLocator.getByRole('link')
 }

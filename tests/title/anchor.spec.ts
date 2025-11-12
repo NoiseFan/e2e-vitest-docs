@@ -10,7 +10,7 @@ test.describe('标题自定义锚点', () => {
   test.setTimeout(3000 * 1000)
 
   test('手工添加锚点', async ({ page, context }) => {
-    const target = '/config/dep-optimization-options.html'
+    const target = '/guide/coverage.html'
     const CNAnchorList = new Map<string, anchorDetailType>()
     const ENAnchorList = new Map<string, anchorDetailType>()
 
@@ -58,7 +58,7 @@ test.describe('标题自定义锚点', () => {
     const checkQueue = []
 
     await test.step('step1：打开中文文档', async () => {
-      await gotoDocsPage(page, { key: 'local', url: '/config/' })
+      await gotoDocsPage(page, { key: 'local', url: '/guide/' })
     })
 
     await test.step('step2：获取所有页面', async () => {
