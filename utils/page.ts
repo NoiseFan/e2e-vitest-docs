@@ -5,6 +5,7 @@ const HOST = {
   local: 'http://localhost:3333',
   en: 'https://vitest.dev',
   cn: 'https://cn.vitest.dev',
+  v1: 'https://v1.vitest.dev',
 }
 
 type buildLinkOptionsType = {
