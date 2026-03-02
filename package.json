@@ -9,12 +9,12 @@
   "main": "index.js",
   "scripts": {},
   "devDependencies": {
-    "@antfu/eslint-config": "^6.2.0",
-    "@playwright/test": "^1.56.1",
-    "@types/node": "^24.9.2",
-    "dotenv": "^17.2.3",
-    "eslint": "^9.38.0",
-    "eslint-plugin-format": "^1.0.2",
-    "eslint-plugin-playwright": "^2.3.0"
+    "@antfu/eslint-config": "^7.6.1",
+    "@playwright/test": "^1.58.2",
+    "@types/node": "^25.3.3",
+    "dotenv": "^17.3.1",
+    "eslint": "^10.0.2",
+    "eslint-plugin-format": "^2.0.1",
+    "eslint-plugin-playwright": "^2.9.0"
   }
 }

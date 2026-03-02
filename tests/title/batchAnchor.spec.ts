@@ -29,7 +29,7 @@ test.describe('锚点批量检查', () => {
       const ENPage = await context.newPage()
 
       await test.step('step3：打开英文文档', async () => {
-        await gotoDocsPage(ENPage, { key: 'en', url: task.href })
+        await gotoDocsPage(ENPage, { key: 'v3', url: task.href })
       })
 
       await test.step('step4：获取英文锚点', async () => {
